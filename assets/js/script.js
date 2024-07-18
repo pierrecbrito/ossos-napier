@@ -105,18 +105,18 @@ const ajustarParaOperando2 = (operando) => {
             let linhas =  $(`tr[linha = "${algarismo}"]:not(.ordenado)`)
 
             //linha que será a próxima a ser adiciona na sequência dos algarismos do operando
-            let linhaASerAdicionada = []
+            let linhaASerAdicionada = null
             linhas.each(function( index ) { 
                 const buscaLinha = linhas.filter(linha => $(linha).attr("linha") == $(this).attr("linha"))
                 if(buscaLinha.length == 0) {
-                    linhaASerAdicionada.push($(this))
+                    linhaASerAdicionada = $(this)
                 }
             });
                
-            let novaLinha = linhaASerAdicionada[0].clone()
+            let novaLinha = linhaASerAdicionada.clone()
             novaLinha.addClass('ordenado')
             $(`#tabela`).append(novaLinha)
-            linhaASerAdicionada[0].remove()
+            linhaASerAdicionada.remove()
             
     })
     
