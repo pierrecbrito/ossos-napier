@@ -23,7 +23,6 @@ const ajustarParaOperando1 = (operando) => {
             let coluna =  $(`td[localizacao $= "-${algarismo}"]`)
             for(let i = 1; i < aparicoes; i++) {
                 
-
                 coluna.each(function( index ) {
                     if(index == 0) {
                         $(`tr[linha="h"]`).append($(this).clone())
@@ -99,24 +98,14 @@ const ajustarParaOperando2 = (operando) => {
     /* 
         Pega sempre a próxima coluna correspondente do algarismo e põe no final na ordem do operando
     */
-   
-    operando.forEach(algarismo => {
-    
-            let linhas =  $(`tr[linha = "${algarismo}"]:not(.ordenado)`)
+    operando.forEach(algarismo => {   
+        let linhas =  $(`tr[linha = "${algarismo}"]:not(.ordenado)`)
 
-            //linha que será a próxima a ser adiciona na sequência dos algarismos do operando
-            let linhaASerAdicionada = null
-            linhas.each(function( index ) { 
-                const buscaLinha = linhas.filter(linha => $(linha).attr("linha") == $(this).attr("linha"))
-                if(buscaLinha.length == 0) {
-                    linhaASerAdicionada = $(this)
-                }
-            });
-               
-            let novaLinha = linhaASerAdicionada.clone()
-            novaLinha.addClass('ordenado')
-            $(`#tabela`).append(novaLinha)
-            linhaASerAdicionada.remove()
+        //linha que será a próxima a ser adiciona na sequência dos algarismos do operando
+        let novaLinha = linhas.first().clone()
+        novaLinha.addClass('ordenado')
+        $(`#tabela`).append(novaLinha)
+        linhas.first().remove()
             
     })
     
