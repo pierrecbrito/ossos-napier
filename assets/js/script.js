@@ -22,8 +22,14 @@ const ajustarParaOperando1 = (operando) => {
         if(aparicoes > 1 && !duplicados.includes(algarismo)) {
             let coluna =  $(`td[localizacao $= "-${algarismo}"]`)
             for(let i = 1; i < aparicoes; i++) {
+                
+
                 coluna.each(function( index ) {
-                    $(`tr[linha="${index + 1}"]`).append($(this).clone())
+                    if(index == 0) {
+                        $(`tr[linha="h"]`).append($(this).clone())
+                    } else {
+                        $(`tr[linha="${ index - 1}"]`).append($(this).clone())
+                    }
                 });
             }   
 
@@ -48,11 +54,16 @@ const ajustarParaOperando1 = (operando) => {
                     celulas.push($(this))
                 }
             });
+            
+            let novaCelula = celulas[0].clone()
+            novaCelula.addClass('ordenado')
+            $(`tr[linha="h"]`).append(novaCelula)
+            celulas[0].remove()
 
-           for(let i = 0; i < 9; ++i) {
-                let novaCelula = celulas[i].clone()
+            for(let i = 1; i < 9; ++i) {
+                novaCelula = celulas[i].clone()
                 novaCelula.addClass('ordenado')
-                $(`tr[linha="${i + 1}"]`).append(novaCelula)
+                $(`tr[linha="${i - 1}"]`).append(novaCelula)
                 celulas[i].remove()
            }
             
