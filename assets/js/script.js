@@ -33,6 +33,29 @@ const ajustarParaOperando1 = (operando) => {
 
 
     //Ordenar
+    /* 
+        Pega sempre a próxima coluna correspondente do algarismo e põe no final na ordem do operando
+    */
+    operando.forEach(algarismo => {
+    
+            let coluna =  $(`td[localizacao $= "-${algarismo}"]:not(.ordenado)`)
 
+            //Células da próxima coluna
+            let celulas = []
+            coluna.each(function( index ) { 
+                const celulaDaColuna = celulas.filter(celula => $(celula).attr("localizacao") == $(this).attr("localizacao"))
+                if(celulaDaColuna.length == 0) {
+                    celulas.push($(this))
+                }
+            });
+
+           for(let i = 0; i < 9; ++i) {
+                let novaCelula = celulas[i].clone()
+                novaCelula.addClass('ordenado')
+                $(`tr[linha="${i + 1}"]`).append(novaCelula)
+                celulas[i].remove()
+           }
+            
+    })
     
 }
