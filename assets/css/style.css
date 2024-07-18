@@ -53,3 +53,16 @@ body {
     top: 1.5em;
     left: 3em;
 }
+
+.destaque {
+    background-color: #111111;
+    color: #FFFFFF;
+    animation-name: destacando;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes destacando {
+    from {background-color: #111111}
+    to { background-color: #8B17FA;}
+}
