@@ -5,7 +5,7 @@
  * @param {*} operando - array com os algarismos do operando da esquerda na multiplicação
  */
 const ajustarParaOperando1 = (operando) => {
-    const algarismos = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     const colunasDeAlgarismosASeremExcluidas = algarismos.filter((algarismo) => !operando.includes(algarismo))//Algarismos que não pertencem ao operando 
     colunasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`td[localizacao $= "-${algarismo}"]`).hide(2000))//Esconde as colunas indesejadas
