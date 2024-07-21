@@ -12,8 +12,6 @@ body {
     padding: 0;
 }
 
-
-
 #tabela, th, td  {
     border: 2px solid #2D2D2D;
     border-collapse: collapse;
@@ -37,6 +35,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .linha-diagonal {
@@ -114,5 +113,37 @@ body {
     from {background-color: #111111}
     to { background-color: #8B17FA;}
 }
+
+#formulario {
+    padding: 1em;
+}
+
+#x-multiplicar {
+    color: #FFFFFF;
+}
+
+#operador1, #operador2 {
+    padding: 5px 10px;
+    border: 1px solid #F1F1F1 !important;
+    outline: none !important;
+    background-color: gainsboro;
+}
+
+#botao-multiplicar {
+    background-color: #8B17FA;
+    color: #FFFFFF;
+    border: none !important;
+    outline: none !important;
+    transition: 1s;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+#botao-multiplicar:hover {
+    transform: translateY(-2px);
+}
+
+
+
 
 
