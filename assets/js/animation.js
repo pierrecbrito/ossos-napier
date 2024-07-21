@@ -40,8 +40,8 @@ const formarMatriz = (quantidadeDeColunas) => {
 
 const animar = (quantidadeDeColunas) => {
     const matriz = formarMatriz(quantidadeDeColunas)
-    let tempoInicialDaColuna = 2000;
-    let tempoDaCelula = 2000;
+    let tempoInicialDaColuna = 4000;
+    let tempoDaCelula = 4000;
 
     for (let coluna = matriz[0].length - 1; coluna >= 0; coluna--) {
         for (let linha = matriz.length - 1; linha >= 0; linha--) {
@@ -52,12 +52,12 @@ const animar = (quantidadeDeColunas) => {
 
             setTimeout(function()  {
                 $(matriz[linha][coluna]).addClass('destaque-emcima')
-            }, tempoDaCelula + 2000);
+            }, tempoDaCelula + 4000);
 
-            tempoDaCelula += 2000;
+            tempoDaCelula += 4000;
         }
 
-        tempoInicialDaColuna += 2000;
+        tempoInicialDaColuna += 4000;
         tempoDaCelula = tempoInicialDaColuna
     }
 }
