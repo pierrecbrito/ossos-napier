@@ -65,12 +65,12 @@ body {
 .destaque {
     background-color: #111111;
     color: #FFFFFF;
-   
+    animation-name: destacando;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
 }
 
-.cruzada::after { 
+.cruzada:after { 
     content: '';
     position: absolute;
     padding-bottom: 133%;
@@ -81,7 +81,7 @@ body {
     top: 14px;
 } 
 
-.cruzada::before { 
+.cruzada:before { 
     content: '';
     position: absolute;
     padding-bottom: 135%;
@@ -95,6 +95,19 @@ body {
     transform: rotate(56deg);
     top: -60px;
 } 
+
+.destaque-emcima:before {
+    animation-name: destacando;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+  
+
+.destaque-embaixo:after {
+    animation-name: destacando;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
   
 
 @keyframes destacando {
@@ -102,14 +115,4 @@ body {
     to { background-color: #8B17FA;}
 }
 
-@keyframes move {
-    from { 
-        top: 115vh;
-        left: 0%;
-    }
-    to { 
-        top: -315px;
-        left: -15%;
-    }
-}
 
