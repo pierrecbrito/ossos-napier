@@ -12,16 +12,20 @@ body {
     padding: 0;
 }
 
+
+
 #tabela, th, td  {
     border: 2px solid #2D2D2D;
     border-collapse: collapse;
     overflow: hidden;
+    z-index: 5;
 }
 
 #tabela td {
     padding: 1em 2em;
     color: #FFFFFF;
     position: relative;
+    z-index: 5;
 }
 
 #container-principal {
@@ -31,6 +35,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .linha-diagonal {
@@ -46,23 +52,64 @@ body {
     position: absolute;
     top: 0.40em;
     left: 0.90em;
+    z-index: 5;
 }
 
 .numero-inferior {
     position: absolute;
     top: 1.5em;
     left: 3em;
+    z-index: 5;
 }
 
 .destaque {
     background-color: #111111;
     color: #FFFFFF;
-    animation-name: destacando;
+   
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
 }
+
+.cruzada::after { 
+    content: '';
+    position: absolute;
+    padding-bottom: 133%;
+    left: 20%;
+    width: 112%;
+    transition: all 1s;
+    transform: rotate(56deg);
+    top: 14px;
+} 
+
+.cruzada::before { 
+    content: '';
+    position: absolute;
+    padding-bottom: 135%;
+    left: -35%;
+    width: 111%;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(56deg);
+    top: -60px;
+} 
+  
 
 @keyframes destacando {
     from {background-color: #111111}
     to { background-color: #8B17FA;}
 }
+
+@keyframes move {
+    from { 
+        top: 115vh;
+        left: 0%;
+    }
+    to { 
+        top: -315px;
+        left: -15%;
+    }
+}
+
