@@ -8,7 +8,7 @@ const ajustarParaOperando1 = (operando, operando2) => {
     const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     const colunasDeAlgarismosASeremExcluidas = algarismos.filter((algarismo) => !operando.includes(algarismo))//Algarismos que não pertencem ao operando 
-    colunasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`td[localizacao $= "-${algarismo}"]`).hide(1000))//Esconde as colunas indesejadas
+    colunasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`td[localizacao $= "-${algarismo}"]`).remove())//Esconde as colunas indesejadas
 
     //Duplicar os devidos duplicados
     let duplicados = []
@@ -66,7 +66,6 @@ const ajustarParaOperando1 = (operando, operando2) => {
         for (let index2 = 0; index2 < operando.length; index2++) {
             let celula = null
 
-            console.log($(`td[localizacao = "${linha}-${operando[index2]}"]`))
             $(`td[localizacao = "${linha}-${operando[index2]}"]`).each(function(index) {
                 if(!$(this).hasClass('ordenado')) {
                     celula = $(this)
@@ -83,19 +82,20 @@ const ajustarParaOperando1 = (operando, operando2) => {
         }
     }
 
+    
     $(`#tabela td`).each(function() {
         if(!$(this).hasClass('ordenado') && $(this).text().trim() != 'x' && $(this).attr('localizacao') != undefined) {
             $(this).remove()
         }
     })
-
+    
 }
 
 const ajustarParaOperando2 = (operando) => {
     const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     const linhasDeAlgarismosASeremExcluidas = algarismos.filter((algarismo) => !operando.includes(algarismo))//Algarismos que não pertencem ao operando 
-    linhasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`tr[linha = "${algarismo}"]`).hide(1000))//Esconde as colunas indesejadas
+    linhasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`tr[linha = "${algarismo}"]`).remove())//Esconde as colunas indesejadas
 
     
     //Duplicar os devidos duplicados
