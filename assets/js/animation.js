@@ -16,22 +16,23 @@ const getCelulasVisiveis = () => {
  */
 const formarMatriz = (quantidadeDeColunas) => {
     let celulasVisiveis = getCelulasVisiveis()
+    console.log('celulas', celulasVisiveis)
     let matriz = [[]]
     let linha = 0;
     let coluna = 0;
     let indicador = 1;
 
     for (let index = 0; index < celulasVisiveis.length; index++) {
-        matriz[linha][coluna] = celulasVisiveis[index]
-        coluna++;
-
-        if(indicador % quantidadeDeColunas == 0 && index != 0 && index != celulasVisiveis.length - 1) {
+        matriz[linha][coluna++] = celulasVisiveis[index]
+    
+        if(indicador % quantidadeDeColunas == 0 && index != 0 && index !=  (celulasVisiveis.length - 1)) {
             matriz.push([])
             linha++;
             coluna = 0;
         }
+
+        ++indicador;
         
-        indicador++;
     }
 
     return matriz;
@@ -40,6 +41,7 @@ const formarMatriz = (quantidadeDeColunas) => {
 
 const animar = (quantidadeDeColunas) => {
     const matriz = formarMatriz(quantidadeDeColunas)
+    console.log(matriz)
     let tempoInicialDaColuna = 3000;
     let tempoDaCelula = 3000;
 
