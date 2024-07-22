@@ -3,17 +3,18 @@ $("#botao-multiplicar").on( "click", function() {
     let operando2 = $("#operando2").val();
 
     //Um array de inteiros
-    operando1 = operando1.split('').map(caractere => parseInt(caractere)) 
-    operando2 = operando2.split('').map(caractere => parseInt(caractere))
+    let algarismosOperando1 = operando1.split('').map(caractere => parseInt(caractere)) 
+    let algarismosOperando2 = operando2.split('').map(caractere => parseInt(caractere))
 
-    ajustarParaOperando1(operando1)
+    ajustarParaOperando1(algarismosOperando1)
 
     setTimeout(function()  {
-       ajustarParaOperando2(operando2)
+       ajustarParaOperando2(algarismosOperando2)
     }, 1500);
 
     setTimeout(function()  {
-        animar(operando1.length)
+        animar(algarismosOperando1.length)
+        resultar(operando1, operando2)
     }, 2000);
 
 } );
