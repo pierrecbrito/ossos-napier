@@ -36,7 +36,7 @@ const fazerAcontecer = () => {
 
     setTimeout(function()  {
        ajustarParaOperando2(algarismosOperando2)
-    }, 1500);
+    }, 100);
 
     setTimeout(function()  {
         animar(algarismosOperando1.length, operando2.length)
