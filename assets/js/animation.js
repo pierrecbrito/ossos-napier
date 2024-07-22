@@ -69,12 +69,12 @@ const resultar = (operando1, operando2) => {
     let resultado = operando1 * operando2
     resultado = `${resultado}`.split('')
 
-    let tempo = 3800;
+    let tempo = 3500;
 
     resultado.reverse().forEach((algarismo) => {
         setTimeout(function()  {
             $('#resultado').prepend(`<span class='algarismo'>${algarismo}</span>`)
         }, tempo);
-        tempo += 3800;
+        tempo += 3500;
     })
 }

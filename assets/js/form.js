@@ -15,6 +15,6 @@ $("#botao-multiplicar").on( "click", function() {
     setTimeout(function()  {
         animar(algarismosOperando1.length)
         resultar(operando1, operando2)
-    }, 2000);
+    }, 3500);
 
 } );
