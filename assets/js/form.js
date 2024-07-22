@@ -60,10 +60,9 @@ const refazerAcontecer = () => {
     let algarismosOperando1 = operando1.split('').map(caractere => parseInt(caractere)) 
     let algarismosOperando2 = operando2.split('').map(caractere => parseInt(caractere))
 
-    animar(algarismosOperando1.length, operando2.length)
+    animar(algarismosOperando1.length, algarismosOperando2.length)
     resultar(operando1, operando2)
     
-
     setTimeout(function()  {
         $("#botao-refazer").show()
     }, 7000 + (`${parseInt(operando1) * parseInt(operando2)}`.split('').length) * 3000);
