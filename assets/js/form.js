@@ -17,4 +17,10 @@ $("#botao-multiplicar").on( "click", function() {
         resultar(operando1, operando2)
     }, 3500);
 
+   $("#botao-multiplicar").prop("disabled",true);
+
+} );
+
+$('#atualizar').on( "click", function() {
+    location.reload();
 } );
