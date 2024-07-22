@@ -41,11 +41,11 @@ const fazerAcontecer = () => {
     setTimeout(function()  {
         animar(algarismosOperando1.length, operando2.length)
         resultar(operando1, operando2)
-    }, 1500);
+    }, 200);
 
     setTimeout(function()  {
         $("#botao-refazer").show()
-    }, 5000 + (`${parseInt(operando1) * parseInt(operando2)}`.split('').length) * 3000);
+    }, 3700 + (`${parseInt(operando1) * parseInt(operando2)}`.split('').length) * 3000);
 
    $("#botao-multiplicar").prop("disabled",true);
    $("#operando1").prop("disabled", "true")
