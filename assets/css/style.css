@@ -134,7 +134,7 @@ body {
     background-color: gainsboro;
 }
 
-#botao-multiplicar {
+#botao-multiplicar, #botao-refazer {
     background-color: #8B17FA;
     color: #FFFFFF;
     border: none !important;
@@ -142,6 +142,15 @@ body {
     transition: 1s;
     padding: 6px 10px;
     cursor: pointer;
+}
+
+#botao-refazer { 
+    margin: 1em 0;
+    display: none;
+}
+
+#btn-container {
+    min-height: 55px;
 }
 
 #botao-multiplicar:hover {
@@ -204,7 +213,7 @@ body {
 }
 
 .jquery-modal {
-    z-index: 10 !important;
+    z-index: 16 !important;
 }
 
 .resultado-diagonal-direita {
