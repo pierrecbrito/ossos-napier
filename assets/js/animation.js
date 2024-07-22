@@ -16,7 +16,6 @@ const getCelulasVisiveis = () => {
  */
 const formarMatriz = (quantidadeDeColunas) => {
     let celulasVisiveis = getCelulasVisiveis()
-    console.log('celulas', celulasVisiveis)
     let matriz = [[]]
     let linha = 0;
     let coluna = 0;
@@ -41,7 +40,6 @@ const formarMatriz = (quantidadeDeColunas) => {
 
 const animar = (quantidadeDeColunas) => {
     const matriz = formarMatriz(quantidadeDeColunas)
-    console.log(matriz)
     let tempoInicialDaColuna = 3000;
     let tempoDaCelula = 3000;
 
