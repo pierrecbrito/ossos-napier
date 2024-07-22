@@ -6,7 +6,7 @@ $("#botao-multiplicar").on( "click", function() {
     let algarismosOperando1 = operando1.split('').map(caractere => parseInt(caractere)) 
     let algarismosOperando2 = operando2.split('').map(caractere => parseInt(caractere))
 
-    ajustarParaOperando1(algarismosOperando1)
+    ajustarParaOperando1(algarismosOperando1, algarismosOperando2)
 
     setTimeout(function()  {
        ajustarParaOperando2(algarismosOperando2)

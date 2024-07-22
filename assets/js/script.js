@@ -4,7 +4,7 @@
  * 
  * @param {*} operando - array com os algarismos do operando da esquerda na multiplicação
  */
-const ajustarParaOperando1 = (operando) => {
+const ajustarParaOperando1 = (operando, operando2) => {
     const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     const colunasDeAlgarismosASeremExcluidas = algarismos.filter((algarismo) => !operando.includes(algarismo))//Algarismos que não pertencem ao operando 
@@ -41,32 +41,30 @@ const ajustarParaOperando1 = (operando) => {
     /* 
         Pega sempre a próxima coluna correspondente do algarismo e põe no final na ordem do operando
     */
-    operando.forEach(algarismo => {
-    
-            let coluna =  $(`td[localizacao $= "-${algarismo}"]:not(.ordenado)`)
 
-            //Células da próxima coluna
-            let celulas = []
-            coluna.each(function( index ) { 
-                const celulaDaColuna = celulas.filter(celula => $(celula).attr("localizacao") == $(this).attr("localizacao"))
-                if(celulaDaColuna.length == 0) {
-                    celulas.push($(this))
-                }
-            });
-            
-            let novaCelula = celulas[0].clone()
+    //Cabeçalho
+    let linha = $(`tr[linha="h"]`)
+    //Colunas
+    for (let index2 = 0; index2 < operando.length; index2++) {
+        let celula =  $(`td[localizacao $= "h-${operando[index2]}"]:not(.ordenado)`)
+        novaCelula = celula.clone()
+        novaCelula.addClass('ordenado')
+        linha.append(novaCelula)
+        celula.remove()
+    }
+
+    //Linhas
+    for (let index = 0; index < operando2.length; index++) {
+        linha = operando2[index];
+        //Colunas
+        for (let index2 = 0; index2 < operando.length; index2++) {
+            let celula =  $(`td[localizacao $= "${linha}-${operando[index2]}"]:not(.ordenado)`)
+            novaCelula = celula.clone()
             novaCelula.addClass('ordenado')
-            $(`tr[linha="h"]`).append(novaCelula)
-            celulas[0].remove()
-
-            for(let i = 1; i < 9; ++i) {
-                novaCelula = celulas[i].clone()
-                novaCelula.addClass('ordenado')
-                $(`tr[linha="${i - 1}"]`).append(novaCelula)
-                celulas[i].remove()
-           }
-            
-    })
+            $(`tr[linha="${linha}"]`).append(novaCelula)
+            celula.remove()
+        }
+    }
     
 }
 
