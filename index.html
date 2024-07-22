@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
 
         <link rel="stylesheet" href="./assets/css/style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -18,6 +19,7 @@
                 <span id="x-multiplicar">X</span>
                 <input type="number" id="operando2" placeholder="Operando 2">
                 <button id="botao-multiplicar">Multiplicar</button>
+                <a href="#ex1" rel="modal:open"><span id="info">ℹ️</span></a>
             </div>
             <table id="tabela">
                 <tr linha="h">
@@ -563,18 +565,37 @@
                         <span class="numero-inferior">1</span>
                     </td>
                 </tr>
-            <table>
-            
-            <div id="resultado">
+              
+            </table>
+           
+            <div id="resultado"></div>
 
+            <div id="ex1" class="modal">
+                <h2>Ossos de Napier</h2>
+                <p>
+                    Os Ossos de Napier são uma ferramenta de cálculo desenvolvida por John Napier no início do século XVII. 
+                    Essa invenção facilitou a multiplicação e a divisão, permitindo cálculos mais rápidos e precisos em uma época onde as operações matemáticas 
+                    complexas eram realizadas manualmente.
+                </p>
+                <h3>Funcionamento</h3>
+                <p>
+                    A ferramenta consiste em hastes, cada uma representando um dígito de 0 a 9, com tabelas de multiplicação gravadas. 
+                    Para multiplicar um número, as hastes correspondentes aos dígitos desse número são alinhadas lado a lado. O multiplicador é 
+                    então utilizado para selecionar a linha apropriada em cada haste. Os valores das diagonais são lidos e somados, levando em consideração 
+                    os valores posicionais (unidades, dezenas, centenas). Esse método visual e estruturado facilita a obtenção de produtos parciais, que são 
+                    então somados para chegar ao resultado final da multiplicação.
+                </p>
+                
             </div>
 
-           
+            <p id="copyright">feito com 💜 por <a href="http://pierrebrito.dev.br" target="_blank">Pierre Brito</p>
         </main>
 
         
         <script src="./assets/js/script.js"></script>
         <script src="./assets/js/animation.js"></script>
         <script src="./assets/js/form.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     </body>
 </html>
