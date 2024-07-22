@@ -38,7 +38,7 @@ const formarMatriz = (quantidadeDeColunas) => {
 }
 
 
-const animar = (quantidadeDeColunas) => {
+const animar = (quantidadeDeColunas, quantidadeDeLinhas) => {
     const matriz = formarMatriz(quantidadeDeColunas)
     let tempoInicialDaColuna = 3000;
     let tempoDaCelula = 3000;
@@ -50,8 +50,12 @@ const animar = (quantidadeDeColunas) => {
                 $(matriz[linha][coluna]).addClass('destaque-embaixo')
             }, tempoDaCelula);
 
+            $(matriz[linha][coluna]).attr('time-embaixo', `${tempoDaCelula}`)
+            $(matriz[linha][coluna]).attr('time-cima', `${tempoDaCelula + 3000}`)
+
             setTimeout(function()  {
                 $(matriz[linha][coluna]).addClass('destaque-emcima')
+                
             }, tempoDaCelula + 3000);
 
             tempoDaCelula += 3000;
@@ -60,6 +64,47 @@ const animar = (quantidadeDeColunas) => {
         tempoInicialDaColuna += 3000;
         tempoDaCelula = tempoInicialDaColuna
     }
+
+    animarSomaDasDiagonais(quantidadeDeLinhas)
+}
+
+const animarSomaDasDiagonais = (quantidadeDeLinhas) => {
+    let tempoDaDiagonaDaVez = 3000;
+    let diagonalIndex = 1;
+
+    const intervalo = setInterval(function() {
+        let somaInferiores = 0
+        let somaSuperiores = 0
+
+        $(`td[time-embaixo='${tempoDaDiagonaDaVez}'] .numero-inferior`).each(function(){
+            somaInferiores += parseInt($(this).text().trim())
+        })
+
+        $(`td[time-cima='${tempoDaDiagonaDaVez}'] .numero-superior`).each(function(){
+            somaInferiores += parseInt($(this).text().trim())
+        })
+
+        if($(`td[time-embaixo='${tempoDaDiagonaDaVez}'] .numero-inferior`).length == 0 && $(`td[time-cima='${tempoDaDiagonaDaVez}'] .numero-superior`).length == 0) {
+            pararIntervalo()
+        } else {
+            let somaDiagonal = somaInferiores + somaSuperiores
+
+            if(diagonalIndex++ <= quantidadeDeLinhas) {  
+                let somaElemento = $(`<span class="resultado-diagonal-direita">${somaDiagonal}</span>`)
+                somaElemento.offset({top: $(`td[time-embaixo='${tempoDaDiagonaDaVez}']`).first().offset().top, left: $(`td[time-embaixo='${tempoDaDiagonaDaVez}']`).first().offset().left + 95})
+                $('#container-principal').append(somaElemento)
+            } else {
+                let somaElemento = $(`<span class="resultado-diagonal-cima">${somaDiagonal}</span>`)
+                somaElemento.offset({top: $(`td[time-cima='${tempoDaDiagonaDaVez}']`).first().offset().top - 30, left: $(`td[time-cima='${tempoDaDiagonaDaVez}']`).first().offset().left + 45})
+                $('#container-principal').append(somaElemento)
+            }
+        }
+
+        tempoDaDiagonaDaVez += 3000;
+       
+    }, 3025)
+
+    const pararIntervalo = () => clearInterval(intervalo)
 }
 
 const resultar = (operando1, operando2) => {

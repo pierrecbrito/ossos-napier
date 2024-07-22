@@ -13,7 +13,7 @@ $("#botao-multiplicar").on( "click", function() {
     }, 1500);
 
     setTimeout(function()  {
-        animar(algarismosOperando1.length)
+        animar(algarismosOperando1.length, operando2.length)
         resultar(operando1, operando2)
     }, 3500);
 

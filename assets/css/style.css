@@ -19,10 +19,11 @@ body {
 #tabela, th, td  {
     border: 2px solid #2D2D2D;
     border-collapse: collapse;
-    overflow: hidden;
     z-index: 5;
     position: relative;
-}
+    overflow: hidden;
+} 
+
 
 #tabela td {
     padding: 1em 2em;
@@ -119,6 +120,7 @@ body {
 #formulario {
     padding: 1em;
     position: relative;
+    margin-bottom: 1.4em;
 }
 
 #x-multiplicar {
@@ -150,6 +152,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 68.200px;
 }
 
 .algarismo {
@@ -202,6 +205,28 @@ body {
 
 .jquery-modal {
     z-index: 10 !important;
+}
+
+.resultado-diagonal-direita {
+    color: #FFFFFF;
+    position: absolute;
+    background-color: #8B17FA;
+    border-radius: 50%;
+    padding: 5px 10px;
+    display: block;
+    z-index: 15;
+    font-size: 0.8em;
+}
+
+.resultado-diagonal-cima {
+    color: #FFFFFF;
+    position: absolute;
+    background-color: #8B17FA;
+    border-radius: 50%;
+    padding: 5px 10px;
+    display: block;
+    z-index: 15;
+    font-size: 0.6em;
 }
 
 
