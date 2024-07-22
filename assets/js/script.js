@@ -46,11 +46,17 @@ const ajustarParaOperando1 = (operando, operando2) => {
     let linha = $(`tr[linha="h"]`)
     //Colunas
     for (let index2 = 0; index2 < operando.length; index2++) {
-        let celula =  $(`td[localizacao $= "h-${operando[index2]}"]:not(.ordenado)`)
+        let celula = null
+
+        $(`td[localizacao="h-${operando[index2]}"]`).each(function(index) {
+            if(!$(this).hasClass('ordenado')) {
+                celula = $(this)
+            }
+        })
+
         novaCelula = celula.clone()
         novaCelula.addClass('ordenado')
         linha.append(novaCelula)
-        celula.remove()
     }
 
     //Linhas
@@ -58,14 +64,31 @@ const ajustarParaOperando1 = (operando, operando2) => {
         linha = operando2[index];
         //Colunas
         for (let index2 = 0; index2 < operando.length; index2++) {
-            let celula =  $(`td[localizacao $= "${linha}-${operando[index2]}"]:not(.ordenado)`)
-            novaCelula = celula.clone()
-            novaCelula.addClass('ordenado')
-            $(`tr[linha="${linha}"]`).append(novaCelula)
-            celula.remove()
+            let celula = null
+
+            console.log($(`td[localizacao = "${linha}-${operando[index2]}"]`))
+            $(`td[localizacao = "${linha}-${operando[index2]}"]`).each(function(index) {
+                if(!$(this).hasClass('ordenado')) {
+                    celula = $(this)
+                }
+            })
+
+            if(celula != null) {
+                novaCelula = celula.clone()
+                novaCelula.addClass('ordenado')
+                $(`tr[linha="${linha}"]`).append(novaCelula)
+                celula.remove()
+            }
+           
         }
     }
-    
+
+    $(`#tabela td`).each(function() {
+        if(!$(this).hasClass('ordenado') && $(this).text().trim() != 'x' && $(this).attr('localizacao') != undefined) {
+            $(this).remove()
+        }
+    })
+
 }
 
 const ajustarParaOperando2 = (operando) => {
@@ -79,15 +102,20 @@ const ajustarParaOperando2 = (operando) => {
     let duplicados = []
     operando.forEach(algarismo => {
         let aparicoes = 0
+
         operando.forEach(algarismo2 => {
             if(algarismo == algarismo2) 
                 ++aparicoes
         })
 
         if(aparicoes > 1 && !duplicados.includes(algarismo)) {
-            let linha = $(`tr[linha = "${algarismo}"]`)       
-            $(`#tabela`).append(linha.clone())
-            duplicados.push(algarismo)
+            let linha = $(`tr[linha="${algarismo}"]`)   
+            for (let index = 1; index <= aparicoes; index++) {
+                $(`#tabela`).append(linha.clone())
+                linha.remove()
+            }
+           
+            duplicados.push(algarismo) 
         }
     })
 
