@@ -10,6 +10,7 @@ const ajustarParaOperando1 = (operando, operando2) => {
     const colunasDeAlgarismosASeremExcluidas = algarismos.filter((algarismo) => !operando.includes(algarismo))//Algarismos que não pertencem ao operando 
     colunasDeAlgarismosASeremExcluidas.forEach(algarismo => $(`td[localizacao $= "-${algarismo}"]`).remove())//Esconde as colunas indesejadas
 
+    
     //Duplicar os devidos duplicados
     let duplicados = []
     operando.forEach(algarismo => {
@@ -42,6 +43,7 @@ const ajustarParaOperando1 = (operando, operando2) => {
         Pega sempre a próxima coluna correspondente do algarismo e põe no final na ordem do operando
     */
 
+        
     //Cabeçalho
     let linha = $(`tr[linha="h"]`)
     //Colunas
@@ -57,11 +59,12 @@ const ajustarParaOperando1 = (operando, operando2) => {
         novaCelula = celula.clone()
         novaCelula.addClass('ordenado')
         linha.append(novaCelula)
+        celula.remove()
     }
 
     //Linhas
-    for (let index = 0; index < operando2.length; index++) {
-        linha = operando2[index];
+    for (let index = 0; index < 10; index++) {
+        linha = index
         //Colunas
         for (let index2 = 0; index2 < operando.length; index2++) {
             let celula = null
@@ -82,14 +85,15 @@ const ajustarParaOperando1 = (operando, operando2) => {
         }
     }
 
-    
+
+}
+
+ /*
     $(`#tabela td`).each(function() {
         if(!$(this).hasClass('ordenado') && $(this).text().trim() != 'x' && $(this).attr('localizacao') != undefined) {
             $(this).remove()
         }
-    })
-    
-}
+    })*/
 
 const ajustarParaOperando2 = (operando) => {
     const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -119,11 +123,12 @@ const ajustarParaOperando2 = (operando) => {
         }
     })
 
-
+    
     //Ordenar
     /* 
         Pega sempre a próxima coluna correspondente do algarismo e põe no final na ordem do operando
     */
+   
     operando.forEach(algarismo => {   
         let linhas =  $(`tr[linha = "${algarismo}"]:not(.ordenado)`)
 
@@ -135,5 +140,6 @@ const ajustarParaOperando2 = (operando) => {
             
     })
     
+     
     
 }
