@@ -39,7 +39,7 @@ const fazerAcontecer = () => {
        ajustarParaOperando2(algarismosOperando2)
     }, 100);
 
-    /*
+    
     setTimeout(function()  {
         animar(algarismosOperando1.length, operando2.length)
         resultar(operando1, operando2)
@@ -51,7 +51,7 @@ const fazerAcontecer = () => {
 
    $("#botao-multiplicar").prop("disabled",true);
    $("#operando1").prop("disabled", "true")
-   $("#operando2").prop("disabled", "true")*/
+   $("#operando2").prop("disabled", "true")
 }
 
 const refazerAcontecer = () => {
