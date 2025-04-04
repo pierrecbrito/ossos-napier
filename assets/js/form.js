@@ -28,6 +28,11 @@ const fazerAcontecer = () => {
     let operando1 = $("#operando1").val();
     let operando2 = $("#operando2").val();
 
+    if (operando1.length > 20 || operando2.length > 20) {
+        alert("Entendemos que números de até 20 algarismos são suficientes para uma boa experiência.");
+        return;
+    }
+
     //Um array de inteiros
     let algarismosOperando1 = operando1.split('').map(caractere => parseInt(caractere)) 
     let algarismosOperando2 = operando2.split('').map(caractere => parseInt(caractere))

@@ -88,12 +88,6 @@ const ajustarParaOperando1 = (operando, operando2) => {
 
 }
 
- /*
-    $(`#tabela td`).each(function() {
-        if(!$(this).hasClass('ordenado') && $(this).text().trim() != 'x' && $(this).attr('localizacao') != undefined) {
-            $(this).remove()
-        }
-    })*/
 
 const ajustarParaOperando2 = (operando) => {
     const algarismos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
