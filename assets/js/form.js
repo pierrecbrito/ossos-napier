@@ -33,6 +33,11 @@ const fazerAcontecer = () => {
         return;
     }
 
+    if (operando1.length == 0 || operando2.length == 0) {
+        alert("Os operandos devem ter no mínimo 1 algarismo.");
+        return;
+    }
+
     //Um array de inteiros
     let algarismosOperando1 = operando1.split('').map(caractere => parseInt(caractere)) 
     let algarismosOperando2 = operando2.split('').map(caractere => parseInt(caractere))
