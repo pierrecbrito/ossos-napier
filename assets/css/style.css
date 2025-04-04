@@ -195,9 +195,8 @@ body {
 #info {
     color: #FFFFFF;
     position: absolute;
-    right: -142px;
+    right: -160px;
     bottom: 12px;
-    background-color: #1F1F1F;
     border-radius: 50%;
     padding: 6px 13px;
     cursor: pointer;
@@ -205,7 +204,7 @@ body {
 
 #atualizar {
     position: absolute;
-    right: -115px;
+    right: -125px;
     bottom: 12px;
     padding: 6px 13px;
     cursor: pointer;
